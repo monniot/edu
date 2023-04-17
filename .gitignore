@@ -3,10 +3,12 @@ wandb/
 models/
 artifact/
 artifacts/
+checkpoints
 model-dev-course/lesson1/artifacts/
 *.csv
 *.json
 *.png
+*.pth
 
 # Jupyter Notebook
 .ipynb_checkpoints
