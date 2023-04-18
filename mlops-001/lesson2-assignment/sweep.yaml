@@ -6,24 +6,21 @@ method: random
 
 # Project this sweep is part of
 project: mlops-course-001
-entity: av-team
 
 # Metric to optimize
 metric:
-  name: miou
+  name: COCOMetric
   goal: maximize
 
 
 # Parameters space to search
 parameters:
-  log_preds:
-    value: False
   lr:
     distribution: log_uniform_values
-    min: 1e-4
+    min: 1e-3
     max: 1e-1
   batch_size:
-    values: [8, 16]
+    values: [2, 4, 8]
   img_size:
     value: 240
   arch:

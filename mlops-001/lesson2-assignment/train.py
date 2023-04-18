@@ -15,7 +15,7 @@ train_config = SimpleNamespace(
     img_size=384,
     batch_size=16,
     augment=True,  # use data augmentation
-    epochs=1,
+    epochs=2,
     lr=1.45e-3,
     arch=0,
     pretrained=True,  # whether to use pretrained encoder
@@ -49,22 +49,22 @@ def parse_args():
     )
     argparser.add_argument(
         "--augment",
-        type=t_or_f,
+        type=bool,
         default=train_config.augment,
         help="Use image augmentation",
     )
     argparser.add_argument(
         "--seed", type=int, default=train_config.seed, help="random seed"
     )
-    argparser.add_argument(
-        "--log_preds",
-        type=t_or_f,
-        default=train_config.log_preds,
-        help="log model predictions",
-    )
+    # argparser.add_argument(
+    #     "--log_preds",
+    #     type=bool,
+    #     default=train_config.log_preds,
+    #     help="log model predictions",
+    # )
     argparser.add_argument(
         "--pretrained",
-        type=t_or_f,
+        type=bool,
         default=train_config.pretrained,
         help="Use pretrained model",
     )
@@ -352,7 +352,7 @@ def train(config, processed_dataset_dir=None):
         metrics=metrics,
         cbs=[
             WandbCallback(log_dataset=True, log_model=True),
-            SaveModelCallback(fname=f"run-{wandb.run.id}-model", monitor="miou"),
+            SaveModelCallback(fname=f"run-{wandb.run.id}-model"),
         ],
     )
     learn.fine_tune(config.epochs, config.lr, freeze_epochs=1)
