@@ -352,7 +352,7 @@ def train(config, processed_dataset_dir=None):
         metrics=metrics,
         cbs=[
             WandbCallback(log_dataset=True, log_model=True),
-            SaveModelCallback(fname=f"run-{wandb.run.id}-model"),
+            SaveModelCallback(fname=f"run-{wandb.run.id}-model", monitor="COCOMetric"),
         ],
     )
     learn.fine_tune(config.epochs, config.lr, freeze_epochs=1)

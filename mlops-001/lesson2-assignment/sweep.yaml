@@ -2,7 +2,7 @@
 program: train.py
 
 # Method can be grid, random or bayes
-method: random
+method: bayes
 
 # Project this sweep is part of
 project: mlops-course-001
@@ -22,7 +22,7 @@ parameters:
   batch_size:
     values: [2, 4, 8]
   img_size:
-    value: 240
+    values: [128,256]
   arch:
     values:
       - 0
