@@ -15,7 +15,7 @@ train_config = SimpleNamespace(
     img_size=384,
     batch_size=16,
     augment=True,  # use data augmentation
-    epochs=2,
+    epochs=5,
     lr=1.45e-3,
     arch=0,
     pretrained=True,  # whether to use pretrained encoder
@@ -161,10 +161,12 @@ def get_data(data_dir, bs=4, image_size=384, augment=True):
     valid_tfms = tfms.A.Adapter(
         [*tfms.A.resize_and_pad(image_size), tfms.A.Normalize()]
     )
+
     # Datasets
     train_ds = Dataset(train_records, train_tfms)
     valid_ds = Dataset(valid_records, valid_tfms)
-    return train_ds, valid_ds, parser
+    test_ds = Dataset(test_records, valid_tfms)
+    return train_ds, valid_ds, parser, test_ds
 
 
 def select_model(selection, image_size):
@@ -315,7 +317,7 @@ def train(config, processed_dataset_dir=None):
     if processed_dataset_dir is None:
         processed_dataset_dir = download_data()
 
-    train_ds, valid_ds, parser = get_data(
+    train_ds, valid_ds, parser, _ = get_data(
         processed_dataset_dir,
         bs=config.batch_size,
         image_size=config.img_size,
