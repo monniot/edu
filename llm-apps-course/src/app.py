@@ -6,6 +6,7 @@ import gradio as gr
 import wandb
 from chain import get_answer, load_chain, load_vector_store
 from config import default_config
+from typing import List, Tuple, Optional
 
 
 class Chat:
@@ -32,7 +33,7 @@ class Chat:
     def __call__(
         self,
         question: str,
-        history: list[tuple[str, str]] | None = None,
+        history: Optional[List[Tuple[str, str]]] = None,
         openai_api_key: str = None,
     ):
         """Answer a question about wandb documentation using the LangChain QA chain and vector store retriever.
@@ -88,7 +89,7 @@ with gr.Blocks() as demo:
         </h1>
         </div>
         <p style="margin-bottom: 10px; font-size: 94%">
-        Hi, I'm a wandb documentaion Q and A bot, start by typing in your OpenAI API key, questions/issues you have related to wandb usage and then press enter.<br>
+        Hi, I'm a OrangeBot, a customer service bot Q and A bot, start by typing in your OpenAI API key, questions/issues you have related to wandb usage and then press enter.<br>
         Built using <a href="https://langchain.readthedocs.io/en/latest/" target="_blank">LangChain</a> and <a href="https://github.com/gradio-app/gradio" target="_blank">Gradio Github repo</a>
         </p>
     </div>"""

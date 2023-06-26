@@ -7,6 +7,7 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
+from typing import Tuple, List
 from prompts import load_chat_prompt
 
 
@@ -67,7 +68,7 @@ def load_chain(wandb_run: wandb.run, vector_store: Chroma, openai_api_key: str):
 def get_answer(
     chain: ConversationalRetrievalChain,
     question: str,
-    chat_history: list[tuple[str, str]],
+    chat_history: List[Tuple[str, str]],
 ):
     """Get an answer from a ConversationalRetrievalChain
     Args:
