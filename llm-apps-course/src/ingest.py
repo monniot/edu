@@ -81,6 +81,7 @@ def chunk_documents_txt(
     Returns:
         List[Document]: A list of chunked documents.
     """
+    # TODO: Split over the separator: Question instead => Context is short and will be cleaner
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
