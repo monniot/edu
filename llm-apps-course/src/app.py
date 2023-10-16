@@ -85,19 +85,19 @@ with gr.Blocks() as demo:
         "
         >
         <h1 style="font-weight: 900; margin-bottom: 7px; margin-top: 5px;">
-            OrangeBot QandA Bot
+            Assistant Offre INTERNATIONAL TRADE AND TRANSACTION BANKING
         </h1>
         </div>
         <p style="margin-bottom: 10px; font-size: 94%">
-        Hi, I'm a OrangeBot, a customer service bot Q and A bot, start by typing in your OpenAI API key, questions/issues you have related to wandb usage and then press enter.<br>
+        Bonjour, je suis un assistant crédit agricole! Je suis créé afin de répondre à toutes vos questions au sujet des conditions des contrats pour le commerce international et la banque commerciale.Commencez par écrire votre clé API OpenAI et vous pourrez poser vos questions.<br>
         Built using <a href="https://langchain.readthedocs.io/en/latest/" target="_blank">LangChain</a> and <a href="https://github.com/gradio-app/gradio" target="_blank">Gradio Github repo</a>
         </p>
     </div>"""
     )
     with gr.Row():
         question = gr.Textbox(
-            label="Type in your questions about wandb here and press Enter!",
-            placeholder="How do i log images with wandb ?",
+            label="Ecrivez vos questions sur les conditions de Crédit Agricole et appuyer sur Entrée!",
+            placeholder="Quelles sont les commissions associées aux transactions SEPA ?",
         )
         openai_api_key = gr.Textbox(
             type="password",

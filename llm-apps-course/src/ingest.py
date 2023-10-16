@@ -10,7 +10,7 @@ import langchain
 import wandb
 from langchain.cache import SQLiteCache
 from langchain.docstore.document import Document
-from langchain.document_loaders import UnstructuredMarkdownLoader, DirectoryLoader
+from langchain.document_loaders import UnstructuredMarkdownLoader, DirectoryLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import MarkdownTextSplitter
@@ -49,6 +49,17 @@ def load_documents_txt(data_dir: str) -> List[Document]:
     dl = DirectoryLoader(data_dir, "**/*.txt", loader_kwargs={"encoding":"utf8"})
     return dl.load()
 
+def load_documents_pdf(data_dir: str) -> List[Document]:
+    """Load documents from a directory of txt files
+
+    Args:
+        data_dir (str): The directory containing the txt files
+
+    Returns:
+        List[Document]: A list of documents
+    """
+    dl = PyPDFLoader("docs_cacib/conditions.pdf")
+    return dl.load()
 def chunk_documents(
     documents: List[Document], chunk_size: int = 500, chunk_overlap=0
 ) -> List[Document]:
@@ -63,6 +74,25 @@ def chunk_documents(
         List[Document]: A list of chunked documents.
     """
     markdown_text_splitter = MarkdownTextSplitter(
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap
+    )
+    split_documents = markdown_text_splitter.split_documents(documents)
+    return split_documents
+
+def chunk_documents_pdf(
+    documents: List[Document], chunk_size: int = 500, chunk_overlap=0
+) -> List[Document]:
+    """Split documents into chunks
+
+    Args:
+        documents (List[Document]): A list of documents to split into chunks
+        chunk_size (int, optional): The size of each chunk. Defaults to 500.
+        chunk_overlap (int, optional): The number of tokens to overlap between chunks. Defaults to 0.
+
+    Returns:
+        List[Document]: A list of chunked documents.
+    """
+    markdown_text_splitter = PDFTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap
     )
     split_documents = markdown_text_splitter.split_documents(documents)
@@ -169,12 +199,11 @@ def ingest_data(
 
     """
     # load the documents
-    documents = load_documents_txt(docs_dir)
-    # split the documents into chunks
-    split_documents = chunk_documents_txt(documents, chunk_size, chunk_overlap)
+    documents = load_documents_pdf(docs_dir)
+
     # create document embeddings and store them in a vector store
-    vector_store = create_vector_store(split_documents, vector_store_path)
-    return split_documents, vector_store
+    vector_store = create_vector_store(documents, vector_store_path)
+    return documents, vector_store
 
 
 def get_parser():
