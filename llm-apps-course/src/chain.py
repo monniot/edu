@@ -44,7 +44,7 @@ def load_chain(wandb_run: wandb.run, vector_store: Chroma, openai_api_key: str):
     Returns:
         ConversationalRetrievalChain: A ConversationalRetrievalChain object
     """
-    retriever = vector_store.as_retriever()
+    retriever = vector_store.as_retriever(search_kwargs=dict(k=3))
     llm = ChatOpenAI(
         openai_api_key=openai_api_key,
         model_name=wandb_run.config.model_name,
@@ -82,5 +82,6 @@ def get_answer(
         inputs={"question": question, "chat_history": chat_history},
         return_only_outputs=True,
     )
-    response = f"Answer:\t{result['answer']}"
+    response = f"Réponse:\t{result['answer']}"
     return response
+
