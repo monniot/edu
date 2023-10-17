@@ -7,7 +7,7 @@ import wandb
 from chain import get_answer, load_chain, load_vector_store
 from config import default_config
 from typing import List, Tuple, Optional
-
+from langchain.callbacks import wandb_tracing_enabled
 
 class Chat:
     """A chatbot interface that persists the vectorstore and chain between calls."""
@@ -61,16 +61,16 @@ class Chat:
             self.chain = load_chain(
                 self.wandb_run, self.vector_store, openai_api_key=openai_key
             )
-
-        history = history or []
-        question = question.lower()
-        response = get_answer(
-            chain=self.chain,
-            question=question,
-            chat_history=history,
-        )
-        history.append((question, response))
-        return history, history
+        with wandb_tracing_enabled():
+            history = history or []
+            question = question.lower()
+            response = get_answer(
+                chain=self.chain,
+                question=question,
+                chat_history=history,
+            )
+            history.append((question, response))
+            return history, history
 
 
 with gr.Blocks() as demo:

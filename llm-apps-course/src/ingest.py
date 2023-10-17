@@ -240,7 +240,7 @@ def get_parser():
     )
     parser.add_argument(
         "--wandb_project",
-        default="llmapps",
+        default="llmapps_cacib",
         type=str,
         help="The wandb project to use for storing artifacts",
     )
