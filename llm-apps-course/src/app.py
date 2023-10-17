@@ -96,7 +96,7 @@ with gr.Blocks() as demo:
     )
     with gr.Row():
         question = gr.Textbox(
-            label="Ecrivez vos questions sur les conditions de Crédit Agricole et appuyer sur Entrée!",
+            label="Ecrivez vos questions sur les conditions de Crédit Agricole et appuyez sur Entrée!",
             placeholder="Quelles sont les commissions associées aux transactions SEPA ?",
         )
         openai_api_key = gr.Textbox(
