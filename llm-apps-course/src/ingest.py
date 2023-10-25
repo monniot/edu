@@ -58,9 +58,9 @@ def load_documents_pdf(data_dir: str) -> List[Document]:
     Returns:
         List[Document]: A list of documents
     """
-    dl = PyPDFLoader("docs_cacib/conditions.pdf")
+    dl = DirectoryLoader(data_dir, "**/*.pdf", loader_cls=PyPDFLoader) # , loader_kwargs={"extract_images":True})
     return dl.load()
-def chunk_documents(
+def chunk_documents_md(
     documents: List[Document], chunk_size: int = 500, chunk_overlap=0
 ) -> List[Document]:
     """Split documents into chunks
@@ -79,26 +79,8 @@ def chunk_documents(
     split_documents = markdown_text_splitter.split_documents(documents)
     return split_documents
 
-def chunk_documents_pdf(
-    documents: List[Document], chunk_size: int = 500, chunk_overlap=0
-) -> List[Document]:
-    """Split documents into chunks
 
-    Args:
-        documents (List[Document]): A list of documents to split into chunks
-        chunk_size (int, optional): The size of each chunk. Defaults to 500.
-        chunk_overlap (int, optional): The number of tokens to overlap between chunks. Defaults to 0.
-
-    Returns:
-        List[Document]: A list of chunked documents.
-    """
-    markdown_text_splitter = PDFTextSplitter(
-        chunk_size=chunk_size, chunk_overlap=chunk_overlap
-    )
-    split_documents = markdown_text_splitter.split_documents(documents)
-    return split_documents
-
-def chunk_documents_txt(
+def chunk_documents(
     documents: List[Document], chunk_size: int = 500, chunk_overlap=0
 ) -> List[Document]:
     """Split documents into chunks
@@ -199,8 +181,10 @@ def ingest_data(
 
     """
     # load the documents
-    documents = load_documents_pdf(docs_dir)
-
+    documents_pdf = load_documents_pdf(docs_dir)
+    documents_txt = load_documents_txt(docs_dir)
+    documents = documents_pdf + documents_txt
+    documents = chunk_documents(documents,  chunk_size=600, chunk_overlap=200)
     # create document embeddings and store them in a vector store
     vector_store = create_vector_store(documents, vector_store_path)
     return documents, vector_store
