@@ -70,3 +70,60 @@ Voici un résumé des positions de Crédit Agricole CIB dans les classements des
 - Global Equity – Bookrunner : Crédit Agricole CIB est passé de la 6ème place en 2022 à la 5ème place en H1 2023.
 - Global Equity excl Blocks and ABB – Bookrunner : Crédit Agricole CIB est passé de la 3ème place en 2022 à la 4ème place en H1 2023.
 - Global Convertible Offering – Bookrunner : Crédit Agricole CIB est passé de la 6ème place en 2022 à la 3ème place en H1 2023.
+
+
+Quelles sont les récompenses de crédit agricole cib au moyen orient?
+Réponse: Crédit Agricole CIB a remporté plusieurs récompenses au Moyen-Orient dans le domaine des fonds IFN (Islamic Finance News) et des sukuk. En 2021, la franchise CACIB a été récompensée pour la "Overall Deal of the year" pour les fonds IFN, ainsi que pour la "Saudi Arabia SUKUK Deal of the year" et la "SUKUK Deal of the year" pour les fonds IFN. De plus, CACIB a également remporté le prix de la "Social Impact Deal of the year" pour les fonds IFN. Ces récompenses témoignent de la reconnaissance de l'excellence de Crédit Agricole CIB dans le domaine de la finance islamique au Moyen-Orient.
+Et par Bonds, Loans and Sukuk awards middle East: Global Corporate Deal of the year 2021 and GLOBAL SOVEREIGN & SUPRA
+
+Que peux tu me dire sur les conditions générales des canaux télématiques?
+Réponse: 
+Les canaux télématiques contiennent optim.net, optim trade, swiftnet, swiftnet fin/fileact, swiftnet trade, ebics services, sftp, pesit services et l'authentification sécurisée
+Voici les informations clés sur les canaux télématiques :
+
+    OPTIM.net :
+        Commission de mise en place : 250,00 € par famille de service (Reporting, Paiement, Messagerie sécurisée, Host to Optim) par contrat.
+        Commission de mise en place : 21,50 € par utilisateur.
+        Formation : 500,00 € + frais de déplacement par formation.
+        Abonnement canal : 21,50 € par compte par mois.
+
+    OPTIM Trade :
+        Commission de mise en place : 500,00 € par contrat.
+        Abonnement canal : 21,50 € par compte.
+
+    SWIFTNet :
+        Commission de mise en place : variable, nous consulter par contrat (selon la complexité du dossier).
+
+    SWIFTNet FIN/FILEACT :
+        Abonnement canal SWIFTNet FIN : 100,00 € par compte par mois.
+        Abonnement canal SWIFTNet FA : 120,00 € par compte par mois.
+        Abonnement canal SWIFTNet FIN / FA : 180,00 € par compte par mois.
+
+    SWIFTNet TRADE :
+        Abonnement canal : 21,50 € par compte par mois.
+
+    EBICS SERVICES :
+        Commission de mise en place EBICS : 150,00 € par contrat.
+        Commission de mise en place EBICS : 150,00 € par utilisateur.
+        Abonnement canal EBICS T : 43,00 € par compte par mois.
+        Abonnement canal EBICS TS : 21,50 € par compte par mois.
+
+
+    Pour le canal SFTP (Host to Host) :
+        Commission de mise en place : 200,00 € par contrat
+        Abonnement canal : 21,50 € par compte par mois
+
+    Pour le service PeSIT :
+        Commission de mise en place : 250,00 € par contrat
+        Abonnement canal : 25,00 € par compte
+
+    Pour l'authentification sécurisée :
+        Certificat SWIFT 3Skey :
+            Commission de mise en place : 90,00 € par certificat
+        Certificat (non SWIFT 3Skey) :
+            Commission de mise en place : 65,00 € par certificat
+        Certificat - Révocation : 30,00 € par certificat
+        DIGIPASS certificat soft token (web/mobile) :
+            Commission de mise en place : 75,00 € par DIGIPASS
+        DIGIPASS certificat hard token (web/mobile) :
+            Commission de mise en place : 90,00 € par DIGIPASS

@@ -13,7 +13,7 @@ default_config = SimpleNamespace(
     chat_prompt_artifact="pmon/llmapps_cacib/chat_prompt:latest",
     chat_temperature=0.3,
     max_fallback_retries=1,
-    model_name="gpt-4",
+    model_name="gpt-3.5-turbo",
     eval_model="gpt-3.5-turbo",
     eval_artifact="pmon/llmapps/generated_examples:v0",
 )
