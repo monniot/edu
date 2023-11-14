@@ -184,7 +184,7 @@ def ingest_data(
     documents_pdf = load_documents_pdf(docs_dir)
     documents_txt = load_documents_txt(docs_dir)
     documents = documents_pdf + documents_txt
-    documents = chunk_documents(documents,  chunk_size=600, chunk_overlap=200)
+    documents = chunk_documents(documents,  chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     # create document embeddings and store them in a vector store
     vector_store = create_vector_store(documents, vector_store_path)
     return documents, vector_store
