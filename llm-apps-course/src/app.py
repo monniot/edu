@@ -85,7 +85,7 @@ with gr.Blocks() as demo:
         "
         >
         <h1 style="font-weight: 900; margin-bottom: 7px; margin-top: 5px;">
-            Assistant Offre INTERNATIONAL TRADE AND TRANSACTION BANKING
+            Assistant Offre CACIB
         </h1>
         </div>
         <p style="margin-bottom: 10px; font-size: 94%">

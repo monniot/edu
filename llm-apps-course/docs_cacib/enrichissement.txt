@@ -127,3 +127,6 @@ Voici les informations clés sur les canaux télématiques :
             Commission de mise en place : 75,00 € par DIGIPASS
         DIGIPASS certificat hard token (web/mobile) :
             Commission de mise en place : 90,00 € par DIGIPASS
+
+Dans combien de pays est présente la banque indosuez?
+La banque Indosuez est présente dans 10 territoires: France, Monaco, Espagne, Belgique, Luxembourg, Suisse, Emirats Arabes Unis, Hong Kong SAR, Singapour et la Nouvelle Calédonie.
